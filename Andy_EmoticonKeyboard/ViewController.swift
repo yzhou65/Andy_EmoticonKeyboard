@@ -10,16 +10,38 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBAction func postClick(_ sender: UIBarButtonItem) {
+//        print(#function)
+        print(customTextView.getEmoticonAttributedText())
+    }
+    
+    @IBOutlet weak var customTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        addChildViewController(emoticonVC)
+        
+        customTextView.inputView = emoticonVC.view
+        
+//        print(EmoticonPackage.emoticonsBundlePath())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        customTextView.becomeFirstResponder()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: lazy init
+    private lazy var emoticonVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) in
+        
+        // TODO: cannot yet dynamically get the texts' font as the argument, for now just use hard-coded value '20'
+        self.customTextView.insertEmoticon(emoticon: emoticon, font: 20)
     }
-
-
+ 
+    
+    deinit {
+        print(#function)
+    }
 }
 

@@ -14,6 +14,13 @@
 		8A830EDB1F279CFA00EBFAD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A830ED91F279CFA00EBFAD1 /* LaunchScreen.storyboard */; };
 		8A830EE61F279CFA00EBFAD1 /* Andy_EmoticonKeyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A830EE51F279CFA00EBFAD1 /* Andy_EmoticonKeyboardTests.swift */; };
 		8A830EF11F279CFA00EBFAD1 /* Andy_EmoticonKeyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A830EF01F279CFA00EBFAD1 /* Andy_EmoticonKeyboardUITests.swift */; };
+		8A830F001F27B9C700EBFAD1 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8A830EFF1F27B9C700EBFAD1 /* Emoticons.bundle */; };
+		8A830F021F27B9EF00EBFAD1 /* EmoticonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A830F011F27B9EE00EBFAD1 /* EmoticonViewController.swift */; };
+		8A830F041F27CFBA00EBFAD1 /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A830F031F27CFBA00EBFAD1 /* EmoticonPackage.swift */; };
+		8A830F081F27D7AB00EBFAD1 /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A830F071F27D7AB00EBFAD1 /* Emoticon.swift */; };
+		8A830F0A1F27E2C400EBFAD1 /* EmoticonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A830F091F27E2C400EBFAD1 /* EmoticonCell.swift */; };
+		8A830F0C1F28511700EBFAD1 /* UITextView+EmoticonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A830F0B1F28511700EBFAD1 /* UITextView+EmoticonExtension.swift */; };
+		8A830F0E1F28553A00EBFAD1 /* EmoticonTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A830F0D1F28553A00EBFAD1 /* EmoticonTextAttachment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,13 @@
 		8A830EEC1F279CFA00EBFAD1 /* Andy_EmoticonKeyboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Andy_EmoticonKeyboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A830EF01F279CFA00EBFAD1 /* Andy_EmoticonKeyboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Andy_EmoticonKeyboardUITests.swift; sourceTree = "<group>"; };
 		8A830EF21F279CFA00EBFAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A830EFF1F27B9C700EBFAD1 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		8A830F011F27B9EE00EBFAD1 /* EmoticonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonViewController.swift; sourceTree = "<group>"; };
+		8A830F031F27CFBA00EBFAD1 /* EmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
+		8A830F071F27D7AB00EBFAD1 /* Emoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
+		8A830F091F27E2C400EBFAD1 /* EmoticonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonCell.swift; sourceTree = "<group>"; };
+		8A830F0B1F28511700EBFAD1 /* UITextView+EmoticonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+EmoticonExtension.swift"; sourceTree = "<group>"; };
+		8A830F0D1F28553A00EBFAD1 /* EmoticonTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonTextAttachment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				8A830ED01F279CFA00EBFAD1 /* AppDelegate.swift */,
+				8A830EFE1F27B9AE00EBFAD1 /* EmoticonView */,
 				8A830ED21F279CFA00EBFAD1 /* ViewController.swift */,
 				8A830ED41F279CFA00EBFAD1 /* Main.storyboard */,
 				8A830ED71F279CFA00EBFAD1 /* Assets.xcassets */,
@@ -123,6 +138,20 @@
 				8A830EF21F279CFA00EBFAD1 /* Info.plist */,
 			);
 			path = Andy_EmoticonKeyboardUITests;
+			sourceTree = "<group>";
+		};
+		8A830EFE1F27B9AE00EBFAD1 /* EmoticonView */ = {
+			isa = PBXGroup;
+			children = (
+				8A830EFF1F27B9C700EBFAD1 /* Emoticons.bundle */,
+				8A830F011F27B9EE00EBFAD1 /* EmoticonViewController.swift */,
+				8A830F0B1F28511700EBFAD1 /* UITextView+EmoticonExtension.swift */,
+				8A830F031F27CFBA00EBFAD1 /* EmoticonPackage.swift */,
+				8A830F0D1F28553A00EBFAD1 /* EmoticonTextAttachment.swift */,
+				8A830F071F27D7AB00EBFAD1 /* Emoticon.swift */,
+				8A830F091F27E2C400EBFAD1 /* EmoticonCell.swift */,
+			);
+			path = EmoticonView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A830EDB1F279CFA00EBFAD1 /* LaunchScreen.storyboard in Resources */,
+				8A830F001F27B9C700EBFAD1 /* Emoticons.bundle in Resources */,
 				8A830ED81F279CFA00EBFAD1 /* Assets.xcassets in Resources */,
 				8A830ED61F279CFA00EBFAD1 /* Main.storyboard in Resources */,
 			);
@@ -263,6 +293,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A830ED31F279CFA00EBFAD1 /* ViewController.swift in Sources */,
+				8A830F081F27D7AB00EBFAD1 /* Emoticon.swift in Sources */,
+				8A830F021F27B9EF00EBFAD1 /* EmoticonViewController.swift in Sources */,
+				8A830F0E1F28553A00EBFAD1 /* EmoticonTextAttachment.swift in Sources */,
+				8A830F0A1F27E2C400EBFAD1 /* EmoticonCell.swift in Sources */,
+				8A830F0C1F28511700EBFAD1 /* UITextView+EmoticonExtension.swift in Sources */,
+				8A830F041F27CFBA00EBFAD1 /* EmoticonPackage.swift in Sources */,
 				8A830ED11F279CFA00EBFAD1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +453,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W46FRQ7PW6;
 				INFOPLIST_FILE = Andy_EmoticonKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "YZ.Andy-EmoticonKeyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,6 +467,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W46FRQ7PW6;
 				INFOPLIST_FILE = Andy_EmoticonKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "YZ.Andy-EmoticonKeyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";

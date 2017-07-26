@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="68M-Eu-5su">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Gx5-AU-TMv">
+            <objects>
+                <navigationController id="68M-Eu-5su" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v8y-P4-2kZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="37w-UK-5HY" kind="relationship" relationship="rootViewController" id="9h3-BE-iT2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOI-9A-ft2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-807" y="779"/>
+        </scene>
         <!--View Controller-->
+        <scene sceneID="RBL-UZ-Tw2">
+            <objects>
+                <viewController id="37w-UK-5HY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UCk-uy-VPD"/>
+                        <viewControllerLayoutGuide type="bottom" id="aGg-d2-yhD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SLJ-uH-3b2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="s0F-5u-SNJ">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="mDo-ir-JZv">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="t8d-MP-6xl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9f-Wh-Nnk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-32" y="780"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Andy_EmoticonKeyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +61,36 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1g1-Cs-pU9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1g1-Cs-pU9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MSe-Cm-sX2"/>
+                            <constraint firstItem="1g1-Cs-pU9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WqJ-OO-0Dr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1g1-Cs-pU9" secondAttribute="bottom" id="s1a-3L-krb"/>
+                            <constraint firstAttribute="trailing" secondItem="1g1-Cs-pU9" secondAttribute="trailing" id="tvL-Dw-dNi"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="fnu-ic-HbS">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="5iY-gG-1A6">
+                            <connections>
+                                <action selector="postClick:" destination="BYZ-38-t0r" id="DZf-ib-ve5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="customTextView" destination="1g1-Cs-pU9" id="vss-hT-Fzu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="742" y="779"/>
         </scene>
     </scenes>
 </document>
