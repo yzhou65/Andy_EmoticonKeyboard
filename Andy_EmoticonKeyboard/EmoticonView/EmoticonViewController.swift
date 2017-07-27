@@ -115,7 +115,19 @@ extension EmoticonViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        print("refreshing: \(indexPath.section)")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AndyEmoticonCellReuseIdentifier, for: indexPath) as! EmoticonCell
-        cell.backgroundColor = (indexPath.item % 2 == 0 ? UIColor.red : UIColor.green)
+        
+        // for debugging
+        switch indexPath.section {
+        case 0:
+            cell.backgroundColor = (indexPath.item % 2 == 0 ? UIColor.red : UIColor.green)
+        case 1:
+            cell.backgroundColor = (indexPath.item % 2 == 0 ? UIColor.blue : UIColor.yellow)
+        case 2:
+            cell.backgroundColor = (indexPath.item % 2 == 0 ? UIColor.orange : UIColor.purple)
+        case 3:
+            cell.backgroundColor = (indexPath.item % 2 == 0 ? UIColor.white : UIColor.black)
+        default: break
+        }
         
         let package = packages[indexPath.section]
         cell.emoticon = package.emoticons[indexPath.item]
@@ -136,12 +148,13 @@ extension EmoticonViewController: UICollectionViewDelegate {
             return
         }
         
-        // emoticon's frequency increments
-        emoticon.freq += 1
-        packages[0].appendRecentEmoticon(emoticon)  //  add the emoticon clicked into "Recent" group
-        
-        // reload data of "Recent" group which is Section 0
-        collectionView.reloadSections(IndexSet.init(integer: IndexSet.Element()))
+        if emoticon.code != nil || emoticon.chs != nil {
+            emoticon.freq += 1  // emoticon's use frequency increments
+            packages[0].addToRecent(with: emoticon) // add the emoticon selected into "Recent"
+            
+            // refresh "Recent" group as it is the Section 0 of collectionView
+            collectionView.reloadSections(IndexSet.init(integer: IndexSet.Element(0)))
+        }
         
         // display the emoticon
         didSelectEmoticon(emoticon)

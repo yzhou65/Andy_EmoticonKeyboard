@@ -28,6 +28,8 @@ extension UITextView {
             
             let maString: NSMutableAttributedString = NSMutableAttributedString(attributedString: attributedText)
             let range: NSRange = selectedRange
+            
+            // replace the selected range with imageText
             maString.replaceCharacters(in: range, with: imageText)
             
             // AttributedString has its default font. Here the font has to be set, otherwise ensuing emoticons will change fonts.
@@ -36,7 +38,7 @@ extension UITextView {
             // replaced AttributedString -> UITextView
             attributedText = maString
             
-            // restore the cursor's location
+            // put the cursor to the right location
             selectedRange = NSRange.init(location: range.location + 1, length: 0)   // range.location: cursor's location
         }
     }

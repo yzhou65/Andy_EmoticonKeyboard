@@ -106,7 +106,7 @@ class EmoticonPackage: NSObject {
     
     
     /// Append an emoticon to the group "Recent"
-    func appendRecentEmoticon(_ emoticon: Emoticon) {
+    func addToRecent(with emoticon: Emoticon) {
         if emoticon.isBackspace {
             return
         }
