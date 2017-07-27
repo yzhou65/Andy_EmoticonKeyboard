@@ -132,7 +132,7 @@ extension EmoticonViewController: UICollectionViewDelegate {
         let emoticon = packages[indexPath.section].emoticons[indexPath.item]    // get the emoticon selected
         
         // if whitespace is selected, no need to do anything
-        if emoticon.code == nil && emoticon.chs == nil {
+        if emoticon.code == nil && emoticon.chs == nil && !emoticon.isBackspace {
             return
         }
         

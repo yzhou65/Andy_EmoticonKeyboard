@@ -134,10 +134,5 @@ class EmoticonPackage: NSObject {
     private func infoPlistPath(name: String) -> String {
         return ((EmoticonsBundleRootPath as NSString).appendingPathComponent(id!) as NSString).appendingPathComponent(name)
     }
-    
-    
-//    class func emoticonsBundleRootPath() -> String {
-//        return (Bundle.main.bundlePath as NSString).appendingPathComponent("Emoticons.bundle")
-//    }
 }
 

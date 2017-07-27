@@ -48,7 +48,7 @@ class EmoticonCell: UICollectionViewCell {
     /// init UI
     private func setupUI() {
         // add and layout
-        addSubview(emoticonBtn)
+        contentView.addSubview(emoticonBtn)
         emoticonBtn.frame = contentView.bounds.insetBy(dx: 4, dy: 4)
         
     }
@@ -59,16 +59,16 @@ class EmoticonCell: UICollectionViewCell {
         let btn = UIButton()
         btn.backgroundColor = UIColor.white
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 32)
-        btn.addTarget(self, action: #selector(emoticonClicked), for: UIControlEvents.touchUpInside)
+//        btn.addTarget(self, action: #selector(emoticonClicked), for: UIControlEvents.touchUpInside)
         btn.isUserInteractionEnabled = false
         return btn
     }()
     
     
     // MARK: listeners
-    @objc fileprivate func emoticonClicked() {
-        print(#function)
-    }
+//    @objc fileprivate func emoticonClicked() {
+//        print(#function)
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
