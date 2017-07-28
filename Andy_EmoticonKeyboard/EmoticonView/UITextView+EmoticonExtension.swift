@@ -40,6 +40,9 @@ extension UITextView {
             
             // put the cursor to the right location
             selectedRange = NSRange.init(location: range.location + 1, length: 0)   // range.location: cursor's location
+            
+            // voluntarily call "textViewDidChange" method (input of non-emoji emoticon will not call this method. If outside has to spy on textViewDidChange, delegate.textViewDidChange has to be called inside here）
+            delegate?.textViewDidChange!(self)
         }
     }
     
