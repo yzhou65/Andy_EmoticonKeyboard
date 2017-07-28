@@ -13,11 +13,13 @@ class EmoticonTextAttachment: NSTextAttachment {
     /// the non-emoji emoticon's chs
     var chs: String?
     
-    class func emoticonText(with emoticon: Emoticon, font: CGFloat) -> NSAttributedString {
+    class func emoticonText(with emoticon: Emoticon, font: UIFont) -> NSAttributedString {
         let attachment = EmoticonTextAttachment()
         attachment.chs = emoticon.chs
         attachment.image = UIImage(contentsOfFile: emoticon.imagePath!)
-        attachment.bounds = CGRect(x: 0, y: -4, width: font, height: font)
+        
+        let s = font.lineHeight
+        attachment.bounds = CGRect(x: 0, y: -4, width: s, height: s)
         
         return NSAttributedString(attachment: attachment)
     }

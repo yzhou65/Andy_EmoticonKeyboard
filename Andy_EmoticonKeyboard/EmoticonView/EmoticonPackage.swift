@@ -38,6 +38,9 @@ class EmoticonPackage: NSObject {
     
     var emoticons: [Emoticon] = [Emoticon]()
     
+    
+    static let packageList: [EmoticonPackage] = EmoticonPackage.getPackages()   // Using static to guarantee that emoticon packages loaded only once (memory consumption reduced)
+    
     init(id: String) {
         super.init()
         self.id = id
@@ -45,7 +48,8 @@ class EmoticonPackage: NSObject {
     
     
     /// get all groups of emoticons
-    class func getPackages() -> [EmoticonPackage] {
+    private class func getPackages() -> [EmoticonPackage] {
+        print(#function)
         var packages = [EmoticonPackage]()
         
         // add "Recent" group ahead of the others

@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     private lazy var emoticonVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) in
         
         // TODO: cannot yet dynamically get the texts' font as the argument, for now just use hard-coded value '20'
-        self.customTextView.insertEmoticon(emoticon: emoticon, font: 20)
+        self.customTextView.insertEmoticon(emoticon: emoticon)
     }
  
     

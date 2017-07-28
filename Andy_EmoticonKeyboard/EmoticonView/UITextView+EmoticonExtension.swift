@@ -13,7 +13,7 @@ extension UITextView {
     /**
      * Insert an emoticon in the textView
      */
-    func insertEmoticon(emoticon: Emoticon, font: CGFloat) {
+    func insertEmoticon(emoticon: Emoticon) {
         if emoticon.isBackspace {
             deleteBackward()
         }
@@ -24,7 +24,7 @@ extension UITextView {
         
         if emoticon.png != nil {
             // create the emoticon text
-            let imageText = EmoticonTextAttachment.emoticonText(with: emoticon, font: font)
+            let imageText = EmoticonTextAttachment.emoticonText(with: emoticon, font: font!)
             
             let maString: NSMutableAttributedString = NSMutableAttributedString(attributedString: attributedText)
             let range: NSRange = selectedRange
@@ -33,7 +33,7 @@ extension UITextView {
             maString.replaceCharacters(in: range, with: imageText)
             
             // AttributedString has its default font. Here the font has to be set, otherwise ensuing emoticons will change fonts.
-            maString.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: font - 2), range: NSRange.init(location: range.location, length: 1))
+            maString.addAttribute(NSFontAttributeName, value: font!, range: NSRange.init(location: range.location, length: 1))
             
             // replaced AttributedString -> UITextView
             attributedText = maString

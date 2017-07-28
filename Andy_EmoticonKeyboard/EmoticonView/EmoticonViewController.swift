@@ -86,7 +86,7 @@ class EmoticonViewController: UIViewController {
     
     
     /// emoticons' data
-    fileprivate lazy var packages: [EmoticonPackage] = EmoticonPackage.getPackages()
+    fileprivate lazy var packages: [EmoticonPackage] = EmoticonPackage.packageList
     
     
     // MARK: listeners
