@@ -47,6 +47,67 @@ class EmoticonPackage: NSObject {
     }
     
     
+    /// Based on the string(including emoticon texts), return the attributedString
+    class func emoticonString(str: String) -> NSAttributedString? {
+        let strM = NSMutableAttributedString(string: str)
+        
+        do {
+            // match pattern
+            let pattern = "\\[.*?\\]"
+            
+            // regex object
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
+            let res = regex.matches(in: str, options: NSRegularExpression.MatchingOptions.init(rawValue: 0), range: NSRange(location: 0, length: str.characters.count))
+            
+            
+            // substitute from the back to the head, otherwise replaced attributedString will affect the ranges of the following string to be substituted by attributedString
+            var index = res.count
+            while index > 0 {
+                index -= 1
+                let checkingRes = res[index]
+                // emoticon string
+                let tempStr = (str as NSString).substring(with: checkingRes.range)
+                print(tempStr)
+                
+                // get the emoticon
+                if let emoticon = getEmoticon(with: tempStr) {
+                    
+                    print(emoticon.chs ?? "ddd")
+                    
+                    
+                    let attributedStr = EmoticonTextAttachment.emoticonText(with: emoticon, font: UIFont.systemFont(ofSize: 18))
+                    
+                    // replace the matched range of string with attributedString
+                    strM.replaceCharacters(in: checkingRes.range, with: attributedStr)
+                }
+            }
+            return strM
+        } catch {
+            print(error)
+            return nil
+        }
+        
+        
+    }
+    
+    
+    /// Get the emoticon by using its text
+    class func getEmoticon(with str: String) -> Emoticon? {
+        var emoticon: Emoticon?
+        
+        for package in EmoticonPackage.packageList {
+            emoticon = package.emoticons.filter({ (e) -> Bool in
+                return e.chs == str
+            }).last
+            
+            if emoticon != nil {
+                break
+            }
+        }
+        return emoticon
+    }
+    
+    
     /// get all groups of emoticons
     private class func getPackages() -> [EmoticonPackage] {
         print(#function)
